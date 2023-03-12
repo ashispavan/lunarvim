@@ -181,33 +181,36 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 
 -- Additional Plugins
- lvim.plugins = {
-     {
-       "folke/trouble.nvim",
-       cmd = "TroubleToggle",
-     },
-    {
-      "windwp/nvim-ts-autotag",
-      config = function()
-      require("nvim-ts-autotag").setup()
-      end,
-    },
+lvim.plugins = {
   {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-},
+    'ThePrimeagen/vim-be-good'
+  },   
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  },
   {
     "ggandor/lightspeed.nvim",
     event = "BufRead"
   },
   {
-  "karb94/neoscroll.nvim",
-  event = "WinScrolled",
-  config = function()
-  require('neoscroll').setup({
+    "karb94/neoscroll.nvim",
+    event = "WinScrolled",
+    config = function()
+      require('neoscroll').setup({
         -- All these keys will be mapped to their corresponding default scrolling animation
         mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-        '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+          '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
         hide_cursor = true,          -- Hide cursor while scrolling
         stop_eof = true,             -- Stop at <EOF> when scrolling downwards
         use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
@@ -216,11 +219,11 @@ lvim.builtin.treesitter.highlight.enable = true
         easing_function = nil,        -- Default easing function
         pre_hook = nil,              -- Function to run before the scrolling animation starts
         post_hook = nil,              -- Function to run after the scrolling animation ends
-        })
-  end
-},
+      })
+    end
+  },
   {
-  "folke/persistence.nvim",
+    "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     module = "persistence",
     config = function()
@@ -228,8 +231,8 @@ lvim.builtin.treesitter.highlight.enable = true
         dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
         options = { "buffers", "curdir", "tabpages", "winsize" },
       }
-  end,
-},
+    end,
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
